@@ -37,3 +37,5 @@ def write(name, rows):
 write("8u-hitting.json", read_csv("8u-hitting-2026.csv"))
 write("9u-hitting.json", read_csv("combined-hitting.csv"))
 write("9u-pitching.json", read_csv("combined-pitching.csv"))
+write("10u-hitting.json", read_csv("10u-hitting-2026.csv"))
+write("10u-pitching.json", read_csv("10u-pitching-2026.csv"))
