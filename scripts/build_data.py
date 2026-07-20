@@ -1,5 +1,6 @@
 import csv
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -41,3 +42,7 @@ write("10u-hitting.json", read_csv("10u-hitting-2026.csv"))
 write("10u-pitching.json", read_csv("10u-pitching-2026.csv"))
 write("11u-hitting.json", read_csv("11u-hitting-2026.csv"))
 write("11u-pitching.json", read_csv("11u-pitching-2026.csv"))
+(DATA / "metadata.json").write_text(
+    json.dumps({"updated": datetime.now(timezone.utc).isoformat()}, separators=(",", ":")),
+    encoding="utf-8",
+)

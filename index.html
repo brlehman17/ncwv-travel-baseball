@@ -15,7 +15,8 @@
       <span class="brand-mark" aria-hidden="true">⚾</span>
       <span><strong>NCWV</strong><small>Travel Baseball</small></span>
     </a>
-    <nav aria-label="Statistics views">
+    <button id="nav-toggle" class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" aria-label="Statistics views">
       <a href="#8u-hitting" data-route="8u-hitting">8U Hitting</a>
       <a href="#9u-hitting" data-route="9u-hitting">9U Hitting</a>
       <a href="#9u-pitching" data-route="9u-pitching">9U Pitching</a>
@@ -32,6 +33,7 @@
         <p class="eyebrow">2026 PLAYER LEADERBOARDS</p>
         <h1>Local baseball,<br><em>made measurable.</em></h1>
         <p class="intro">Explore hitting and pitching results from North Central West Virginia travel teams. Sort every column, narrow the field, and export the view you need.</p>
+        <p class="data-notice">Unofficial statistics derived from recorded GameChanger data. Totals may be incomplete and should not be used as official team records.</p>
       </div>
     </section>
 
@@ -48,6 +50,7 @@
         <details class="columns"><summary>Columns</summary><div id="column-options"></div></details>
         <button id="reset" class="text-button" type="button">Reset filters</button>
       </div>
+      <p id="qualification-note" class="qualification-note" aria-live="polite"></p>
       <div class="table-shell">
         <table>
           <thead><tr id="table-head"></tr></thead>
@@ -61,7 +64,11 @@
       </details>
     </section>
   </main>
-  <footer><span>NCWV Travel Baseball · 2026</span><span>Unofficial statistics for scouting and comparison</span></footer>
+  <footer>
+    <span>NCWV Travel Baseball · 2026</span>
+    <span id="last-updated">Last updated: checking…</span>
+    <a href="https://github.com/brlehman17/ncwv-travel-baseball/issues/new?title=Statistics%20correction&amp;body=Division%3A%0ATeam%3A%0APlayer%3A%0ACorrection%3A" target="_blank" rel="noopener">Report a correction</a>
+  </footer>
   <script src="assets/app.js"></script>
 </body>
 </html>

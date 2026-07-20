@@ -8,6 +8,37 @@ main {
   grid-template-columns: minmax(0, 900px);
 }
 
+.data-notice,
+.qualification-note {
+  max-width: 780px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.data-notice {
+  padding: 12px 14px;
+  border-left: 3px solid var(--accent);
+  background: rgba(255, 253, 248, .7);
+}
+
+.qualification-note {
+  margin: 0;
+  padding: 10px 16px;
+  border-inline: 1px solid var(--line);
+  background: var(--card);
+}
+
+.nav-toggle {
+  display: none;
+}
+
+footer a {
+  color: var(--accent);
+  font-weight: 800;
+  text-decoration: none;
+}
+
 .leaderboard {
   padding-inline: clamp(10px, 2vw, 32px);
 }
@@ -70,5 +101,42 @@ main {
   .leaderboard th button,
   .leaderboard td {
     padding-inline: 4px;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    min-height: 38px;
+    align-items: center;
+    padding: 0 14px;
+    border: 1px solid var(--ink);
+    border-radius: 4px;
+    background: var(--ink);
+    color: white;
+    font-weight: 800;
+  }
+
+  .site-header nav {
+    display: none;
+    width: 100%;
+    max-width: none;
+    padding-top: 8px;
+    overflow: visible;
+    flex-wrap: wrap;
+  }
+
+  .site-header nav.open {
+    display: flex;
+  }
+
+  .site-header nav a {
+    flex: 1 1 calc(50% - 8px);
+    text-align: center;
   }
 }
