@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#142a3a">
+  <title>NCWV Travel Baseball</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="NCWV Travel Baseball home">
+      <span class="brand-mark" aria-hidden="true">⚾</span>
+      <span><strong>NCWV</strong><small>Travel Baseball</small></span>
+    </a>
+    <nav aria-label="Statistics views">
+      <a href="#8u-hitting" data-route="8u-hitting">8U Hitting</a>
+      <a href="#9u-hitting" data-route="9u-hitting">9U Hitting</a>
+      <a href="#9u-pitching" data-route="9u-pitching">9U Pitching</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div>
+        <p class="eyebrow">2026 PLAYER LEADERBOARDS</p>
+        <h1>Local baseball,<br><em>made measurable.</em></h1>
+        <p class="intro">Explore hitting and pitching results from North Central West Virginia travel teams. Sort every column, narrow the field, and export the view you need.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#8u-hitting">Explore 8U hitting</a>
+          <a class="button secondary" href="#9u-hitting">Explore 9U stats</a>
+        </div>
+      </div>
+      <aside class="scoreboard" aria-label="Available datasets">
+        <span>2026 SEASON</span>
+        <div><b>8U</b><small>HITTING</small></div>
+        <div><b>9U</b><small>HITTING + PITCHING</small></div>
+        <p>Stats reflect recorded GameChanger data and may not include every plate appearance or play.</p>
+      </aside>
+    </section>
+
+    <section id="leaderboard" class="leaderboard" hidden>
+      <div class="title-row">
+        <div><p class="eyebrow">2026 LEADERBOARD</p><h1 id="view-title"></h1></div>
+        <button id="download" class="button secondary" type="button">Download filtered CSV</button>
+      </div>
+      <div id="summary" class="summary" aria-live="polite"></div>
+      <div class="controls">
+        <label class="search"><span>Search player</span><input id="search" type="search" placeholder="Name or number…"></label>
+        <label><span>Team</span><select id="team"><option value="">All teams</option></select></label>
+        <label><span id="minimum-label">Minimum PA</span><input id="minimum" type="number" min="0" step="1" value="0"></label>
+        <details class="columns"><summary>Columns</summary><div id="column-options"></div></details>
+        <button id="reset" class="text-button" type="button">Reset filters</button>
+      </div>
+      <div class="table-shell">
+        <table>
+          <thead><tr id="table-head"></tr></thead>
+          <tbody id="table-body"></tbody>
+        </table>
+        <p id="empty" class="empty" hidden>No players match those filters.</p>
+      </div>
+      <details class="legend">
+        <summary>Statistics legend &amp; notes</summary>
+        <div id="legend-content"></div>
+      </details>
+    </section>
+  </main>
+  <footer><span>NCWV Travel Baseball · 2026</span><span>Unofficial statistics for scouting and comparison</span></footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>
