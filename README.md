@@ -1,6 +1,6 @@
 # NCWV Travel Baseball
 
-Static, interactive 2026 leaderboards for NCWV 8U, 9U, and 10U travel baseball.
+Static, interactive 2026 leaderboards for NCWV 8U, 9U, 10U, and 11U travel baseball.
 
 ## Refresh the data
 
