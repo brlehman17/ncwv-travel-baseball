@@ -4,6 +4,10 @@ main {
   max-width: none;
 }
 
+.hero {
+  grid-template-columns: minmax(0, 900px);
+}
+
 .leaderboard {
   padding-inline: clamp(10px, 2vw, 32px);
 }
