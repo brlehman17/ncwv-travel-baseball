@@ -4,6 +4,20 @@ main {
   max-width: none;
 }
 
+.totals-row {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  background: color-mix(in srgb, var(--team) 16%, #fff);
+  font-weight: 900;
+  box-shadow: 0 -2px 0 var(--team);
+}
+
+.totals-row td {
+  border-top: 2px solid var(--team);
+  border-bottom: 0;
+}
+
 .hero {
   grid-template-columns: minmax(0, 900px);
 }
