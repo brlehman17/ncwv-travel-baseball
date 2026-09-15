@@ -6,8 +6,8 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#142a3a">
   <title>NCWV Travel Baseball</title>
-  <link rel="stylesheet" href="assets/styles.css?v=20260904-1">
-  <link rel="stylesheet" href="assets/wide-tables.css?v=20260915-2">
+  <link rel="stylesheet" href="assets/styles.css?v=20260915-3">
+  <link rel="stylesheet" href="assets/wide-tables.css?v=20260915-3">
 </head>
 <body>
   <header class="site-header">
@@ -17,31 +17,18 @@
     </a>
     <button id="nav-toggle" class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" aria-label="Statistics views">
-      <label class="season-picker"><span>Season</span><select id="season" aria-label="Season" onchange="selectSeason(this.value)"><option value="summer-2026">Summer 2026</option></select></label>
-      <a href="#8u-hitting" data-route="8u-hitting">8U Hitting</a>
-      <a href="#9u-hitting" data-route="9u-hitting">9U Hitting</a>
-      <a href="#9u-pitching" data-route="9u-pitching">9U Pitching</a>
-      <a href="#10u-hitting" data-route="10u-hitting">10U Hitting</a>
-      <a href="#10u-pitching" data-route="10u-pitching">10U Pitching</a>
-      <a href="#11u-hitting" data-route="11u-hitting">11U Hitting</a>
-      <a href="#11u-pitching" data-route="11u-pitching">11U Pitching</a>
+      <label class="season-picker"><span>Season</span><select id="season" aria-label="Season"></select></label>
+      <label class="view-picker"><span>Leaderboard</span><select id="view" aria-label="Leaderboard"></select></label>
     </nav>
   </header>
 
   <main>
     <section id="home" class="hero">
       <div>
-        <p class="eyebrow">SUMMER 2026 PLAYER LEADERBOARDS</p>
+        <p id="home-title" class="eyebrow">SUMMER 2026 PLAYER LEADERBOARDS</p>
         <p class="data-notice">Unofficial statistics derived from recorded GameChanger data. Totals may be incomplete and should not be used as official team records.</p>
-        <nav class="home-menu" aria-label="Mobile leaderboard menu">
+        <nav id="home-menu" class="home-menu" aria-label="Leaderboard menu">
           <p><span class="season-label">Summer 2026</span>Choose a leaderboard</p>
-          <a href="#8u-hitting"><strong>8U</strong><span>Hitting</span></a>
-          <a href="#9u-hitting"><strong>9U</strong><span>Hitting</span></a>
-          <a href="#9u-pitching"><strong>9U</strong><span>Pitching</span></a>
-          <a href="#10u-hitting"><strong>10U</strong><span>Hitting</span></a>
-          <a href="#10u-pitching"><strong>10U</strong><span>Pitching</span></a>
-          <a href="#11u-hitting"><strong>11U</strong><span>Hitting</span></a>
-          <a href="#11u-pitching"><strong>11U</strong><span>Pitching</span></a>
         </nav>
       </div>
     </section>
@@ -78,7 +65,7 @@
     <span id="last-updated">Last updated: checking…</span>
     <a href="https://github.com/brlehman17/ncwv-travel-baseball/issues/new?title=Statistics%20correction&amp;body=Division%3A%0ATeam%3A%0APlayer%3A%0ACorrection%3A" target="_blank" rel="noopener">Report a correction</a>
   </footer>
-  <script src="assets/app.js?v=20260904-1"></script>
+  <script src="assets/app.js?v=20260915-3"></script>
   <!-- Cloudflare Web Analytics -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"2d5bf2781cfb44f18af04c1637417ca4"}'></script>
   <!-- End Cloudflare Web Analytics -->

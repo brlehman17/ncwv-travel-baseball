@@ -201,6 +201,20 @@ footer a {
     display: flex;
   }
 
+  .site-header nav label {
+    flex: 1 1 calc(50% - 8px);
+  }
+
+  .site-header nav select {
+    width: 100%;
+  }
+
+  .season-picker {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
   .site-header nav a {
     flex: 1 1 calc(50% - 8px);
     text-align: center;
