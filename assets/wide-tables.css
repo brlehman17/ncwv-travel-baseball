@@ -1,4 +1,8 @@
 /* Wide, compact leaderboards keep the full stat line visible on desktop. */
+[hidden] {
+  display: none !important;
+}
+
 main {
   width: 100%;
   max-width: none;
