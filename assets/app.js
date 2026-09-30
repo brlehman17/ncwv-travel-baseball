@@ -8,17 +8,21 @@ let datasets={
   "11u-pitching":{title:"11U Pitching",file:"data/11u-pitching.json",minimum:"bf",minimumLabel:"Minimum BF",columns:["team","number","player","g","ip","h","r","er","bb","so","pitches","strikes","bf","era","whip","strike%"]}
 };
 const seasons={
+  "fall-2026":{label:"Fall 2026",datasets:{
+    "9u-hitting":{...datasets["9u-hitting"],file:"data/fall-2026-9u-hitting.json"},
+    "9u-pitching":{...datasets["9u-pitching"],file:"data/fall-2026-9u-pitching.json"}
+  }},
   "summer-2026":{label:"Summer 2026",datasets}
 };
-const DEFAULT_SEASON="summer-2026";
-const DATA_VERSION="20260720-3";
+const DEFAULT_SEASON="fall-2026";
+const DATA_VERSION="20260930-1";
 const labels={team:"Team",number:"#",player:"Player",g:"G",games:"G",games_pitched:"G",pa:"PA",ab:"AB",r:"R",h:"H",b1:"1B",b2:"2B",b3:"3B",hr:"HR",rbi:"RBI",bb:"BB",so:"SO",hbp:"HBP",sf:"SF",roe:"ROE",sb:"SB",cs:"CS",tb:"TB",avg:"AVG",obp:"OBP",slg:"SLG",ops:"OPS",iso:"ISO","bb%":"BB%","k%":"K%",ip:"IP",er:"ER",pitches:"Pitches",strikes:"Strikes",bf:"BF",batters_faced:"BF",era:"ERA",whip:"WHIP","strike%":"Strike%",strike_pct:"Strike%"};
 const teamColors={"Morgantown Mambas":"#7651a6","Morgantown Redbirds":"#c94742","Mon River Mudcats":"#4d8a57","Mon River MudCats":"#4d8a57","Riverjaxx":"#db7a32","RiverJaxx":"#db7a32","TP FURY":"#767d82","Fayette Fury":"#767d82","WV Miners":"#2d6b99","WV Patriots":"#3d72ae","Runners Baseball":"#168a8a","Morgantown Legion":"#1f497d","Stallions Baseball":"#a56a2a","Hit Dogs Bridgeport":"#bd4f72","Tri County Irish":"#208050"};
-const els=Object.fromEntries(["home","home-title","home-menu","leaderboard","view-title","view-context","summary","search","team","season","view","minimum","minimum-label","qualification-note","column-options","table-head","table-body","empty","download","reset","legend-content","last-updated","nav-toggle","site-nav"].map(id=>[id,document.getElementById(id)]));
+const els=Object.fromEntries(["home","home-title","home-menu","leaderboard","view-title","view-context","summary","search","team","season","view","minimum","minimum-label","qualification-note","column-options","table-head","table-body","empty","download","reset","legend-content","last-updated","site-season","nav-toggle","site-nav"].map(id=>[id,document.getElementById(id)]));
 let state={season:DEFAULT_SEASON,route:null,rows:[],sort:null,direction:-1,visible:new Set()};
 const currentDatasets=()=>seasons[state.season].datasets;
 const routeUrl=route=>`#${state.season}/${route}`;
-function renderNavigation(){const season=seasons[state.season],entries=Object.entries(season.datasets);els.season.innerHTML=Object.entries(seasons).map(([key,value])=>`<option value="${escapeHtml(key)}"${key===state.season?" selected":""}>${escapeHtml(value.label)}</option>`).join("");els.view.innerHTML=entries.map(([key,value])=>`<option value="${escapeHtml(key)}"${key===state.route?" selected":""}>${escapeHtml(value.title)}</option>`).join("");els["home-title"].textContent=`${season.label.toUpperCase()} PLAYER LEADERBOARDS`;els["view-context"].textContent=`${season.label.toUpperCase()} LEADERBOARD`;els["home-menu"].innerHTML=`<p><span class="season-label">${escapeHtml(season.label)}</span>Choose a leaderboard</p>`+entries.map(([key,value])=>`<a href="${routeUrl(key)}"><strong>${escapeHtml(value.title)}</strong><span>View stats</span></a>`).join("")}
+function renderNavigation(){const season=seasons[state.season],entries=Object.entries(season.datasets);els.season.innerHTML=Object.entries(seasons).map(([key,value])=>`<option value="${escapeHtml(key)}"${key===state.season?" selected":""}>${escapeHtml(value.label)}</option>`).join("");els.view.innerHTML=entries.map(([key,value])=>`<option value="${escapeHtml(key)}"${key===state.route?" selected":""}>${escapeHtml(value.title)}</option>`).join("");els["home-title"].textContent=`${season.label.toUpperCase()} PLAYER LEADERBOARDS`;els["view-context"].textContent=`${season.label.toUpperCase()} LEADERBOARD`;els["site-season"].textContent=season.label;els["home-menu"].innerHTML=`<p><span class="season-label">${escapeHtml(season.label)}</span>Choose a leaderboard</p>`+entries.map(([key,value])=>`<a href="${routeUrl(key)}"><strong>${escapeHtml(value.title)}</strong><span>View stats</span></a>`).join("")}
 function selectSeason(season){if(!seasons[season])return;state.season=season;datasets=currentDatasets();state.route=datasets[state.route]?state.route:Object.keys(datasets)[0]||null;renderNavigation();if(state.route)location.hash=`${state.season}/${state.route}`}
 const colorFor=team=>Object.entries(teamColors).find(([key])=>team.includes(key))?.[1]||"#83919a";
 const display=(key,value)=>{if(value===""||value==null)return "—";if(["avg","obp","slg","ops","era","whip"].includes(key))return Number(value).toFixed(key==="era"||key==="whip"?2:3).replace(/^0/,"");if(["strike_pct","strike%","bb%","k%"].includes(key))return `${(Number(value)*100).toFixed(1)}%`;return value};
